@@ -23,7 +23,8 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
 # Criar o servidor
-server = SimpleXMLRPCServer(("localhost", 8000), requestHandler=RequestHandler, allow_none=True)
+# Use 0.0.0.0 para permitir conexões de qualquer endereço IP
+server = SimpleXMLRPCServer(("0.0.0.0", 8000), requestHandler=RequestHandler, allow_none=True)
 server.register_introspection_functions()
 
 # Funções para serem expostas
@@ -48,7 +49,6 @@ def complex_operation2(complex_value):
 def multiple_string(s1, s2, s3, s4, s5, s6):
     return s1 + s2 + s3 + s4 + s5 + s6
 
-
 # Registrar funções
 server.register_function(void, 'void')
 server.register_function(long_function, 'long_function')
@@ -59,5 +59,5 @@ server.register_function(complex_operation2, 'complex_operation2')
 server.register_function(multiple_string, 'multiple_string')
 
 # Executar o servidor
-print("Server is running on port 8000...")
+print("Server is running on port 8000 and accepting connections from all IP addresses...")
 server.serve_forever()
