@@ -33,7 +33,7 @@ def timed_operation(func, *args):
 # Chamar funções remotas e imprimir os resultados e tempo de execução
 def perform_operation(operation, *args):
     result, elapsed_time = timed_operation(operation, *args)
-    print(f"Operation result: {result} (Time taken: {elapsed_time:.9f} seconds)")
+    print(f"Operation (Time taken: {elapsed_time:.9f} seconds)")
 
 for i in range (1,10):
     # Chamar as funções remotas com temporizadores
@@ -43,6 +43,8 @@ for i in range (1,10):
     perform_operation(server.long_function, 100000000)
     perform_operation(server.multiple_long_function, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000)
     perform_operation(server.string_operation, "hello world")
+    perform_operation(server.string_operation, "hello world" * 512)
+    perform_operation(server.string_operation, "hello world" * 1024)
     complex_value = ComplexType(1, "matheus")
     perform_operation(server.complex_operation, complex_value)
     complex_value2 = ComplexType2(
