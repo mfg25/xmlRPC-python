@@ -1,8 +1,11 @@
 import xmlrpc.client
 import time
 
+
 # Conectar ao servidor
-server = xmlrpc.client.ServerProxy('http://localhost:8000', allow_none=True)
+print('conectando servidor')
+server = xmlrpc.client.ServerProxy('http://127.0.0.1:8000', allow_none=True)
+print('servidor conectado')
 
 class ComplexType:
     def __init__(self, number, string):
