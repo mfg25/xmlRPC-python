@@ -52,15 +52,15 @@ for i in range (1,10):
     perform_operation(server.complex_operation, complex_value)
     complex_value2 = ComplexType2(
         id=123,
-        age=30,
-        address="123 Main St",
-        name="John Doe",
-        food="Pizza",
-        color="Blue",
-        game="Chess",
-        sport="Soccer",
-        height="6ft 2in",
-        nickname="Johnny"
+        age=21,
+        address="usp leste",
+        name="matheus",
+        food="pizza",
+        color="red",
+        game="hotline miami",
+        sport="soccer",
+        height="173cm",
+        nickname="25december"
     )
     perform_operation(server.complex_operation2, complex_value2)
     perform_operation(server.multiple_string, "hello", "world", "helloworld", "helloworld", "helloworld", "helloworld")
